@@ -1,0 +1,23 @@
+version: "3"
+
+tasks:
+  init:
+    desc: Init Terraform modules
+    dir: "{{.TERRAFORM_DIR}}"
+    cmd: terraform init
+
+  validate:
+    desc: Validate Terraform files
+    dir: "{{.TERRAFORM_DIR}}"
+    cmd: terraform validate
+
+  apply:
+    desc: Apply Terraform infra
+    dir: "{{.TERRAFORM_DIR}}"
+    cmd: terraform apply
+
+  destroy:
+    desc: Destroy the universe (boom)
+    dir: "{{.TERRAFORM_DIR}}"
+    cmd: terraform destroy
+
