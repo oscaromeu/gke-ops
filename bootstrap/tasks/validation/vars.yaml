@@ -23,8 +23,5 @@
     - bootstrap_acme_email
     - bootstrap_acme_production_enabled
     - bootstrap_flux_github_webhook_token
-    - bootstrap_ipv6_enabled
-    - bootstrap_cluster_cidr
-    - bootstrap_service_cidr
     - bootstrap_cloudflare_domain
     - bootstrap_cloudflare_token

@@ -76,11 +76,11 @@ spec:
     ipam:
       mode: kubernetes
 
-    # Config mantenida
-    ipv4NativeRoutingCIDR: "${CLUSTER_CIDR}"
-
     kubeProxyReplacement: strict
     kubeProxyReplacementHealthzBindAddr: 0.0.0.0:10256
+    # https://isovalent.com/blog/post/tutorial-getting-started-with-the-cilium-gateway-api/
+    gatewayAPI:
+      enabled: false
 
     operator:
       replicas: 1

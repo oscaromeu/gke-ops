@@ -6,6 +6,17 @@ tasks:
     desc: Verify flux meets the prerequisites
     cmd: flux check --pre
 
+  bootstrap:
+    desc: Bootstrap flux crds onto the cluster
+    cmds:
+      - kubectl apply -k {{.KUBERNETES_DIR}}/bootstrap/
+
+  prerequisites:
+    desc: Install Cilium into your cluster
+    cmds:
+      #- NATIVE_CIDR="$(gcloud container clusters describe "${NAME}" --zone "${ZONE}" --format 'value(clusterIpv4Cidr)')"
+
+
   install:
     desc: Install Flux into your cluster
     cmds:
