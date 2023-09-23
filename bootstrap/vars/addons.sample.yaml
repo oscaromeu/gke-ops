@@ -14,7 +14,7 @@ grafana:
 
 # https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack
 kube_prometheus_stack:
-  enabled: false
+  enabled: true
 
 # https://github.com/kubernetes/dashboard
 kubernetes_dashboard:
