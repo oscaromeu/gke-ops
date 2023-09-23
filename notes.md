@@ -23,7 +23,7 @@ export NAME="gke-ops"
 # Pods are only scheduled/executed in the node when Cilium is ready.
 # Alternatively, see the note below.
 gcloud container clusters create "${NAME}" \
- --disable-managed-prometheus \
+ --no-enable-managed-prometheus \
  --zone us-west2-a
 ```
 
