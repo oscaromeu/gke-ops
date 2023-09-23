@@ -66,11 +66,6 @@ spec:
                     limits:
                       cpu: 2000m
                       memory: 2Gi
-              tolerations:
-              - key: "node.cilium.io/agent-not-ready"
-                operator: "Equal"
-                value: true
-                effect: "NoSchedule"
       target:
         kind: Deployment
         name: (kustomize-controller|helm-controller|source-controller)
