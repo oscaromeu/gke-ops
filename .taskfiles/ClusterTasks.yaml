@@ -19,6 +19,7 @@ tasks:
           ]
         cmd: kubectl apply -f {{ .ITEM }}
 
+
   install:
     desc: Install Flux into your cluster
     cmds:

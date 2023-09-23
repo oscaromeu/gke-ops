@@ -1,0 +1,68 @@
+cluster:
+  name: gke-cluster
+  id: 1
+hubble:
+  enabled: true
+  metrics:
+    enabled:
+      - dns:query
+      - drop
+      - tcp
+      - flow
+      - port-distribution
+      - icmp
+      - http
+    serviceMonitor:
+      enabled: true
+    dashboards:
+      enabled: true
+      annotations:
+        grafana_folder: Cilium
+  relay:
+    enabled: true
+    rollOutPods: true
+    prometheus:
+      serviceMonitor:
+        enabled: true
+
+nodeinit:
+# -- Enable the node initialization DaemonSet
+  enabled: true
+  reconfigureKubelet: true
+  removeCbrBridge: true
+cni:
+  binPath: /home/kubernetes/bin
+gke:
+  enabled: true
+ipam:
+  mode: kubernetes
+
+kubeProxyReplacement: strict
+kubeProxyReplacementHealthzBindAddr: 0.0.0.0:10256
+# https://isovalent.com/blog/post/tutorial-getting-started-with-the-cilium-gateway-api/
+gatewayAPI:
+  enabled: false
+
+ipv4NativeRoutingCIDR: "10.42.0.0/16"
+
+operator:
+  replicas: 1
+  rollOutPods: true
+  prometheus:
+    enabled: true
+    serviceMonitor:
+      enabled: true
+  dashboards:
+    enabled: true
+    annotations:
+      grafana_folder: Cilium
+prometheus:
+  enabled: true
+  serviceMonitor:
+    enabled: true
+    trustCRDsExist: true
+dashboards:
+  enabled: true
+  annotations:
+    grafana_folder: Cilium
+rollOutCiliumPods: true
