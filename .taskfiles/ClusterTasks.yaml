@@ -7,15 +7,17 @@ tasks:
     cmd: flux check --pre
 
   bootstrap:
-    desc: Bootstrap flux crds onto the cluster
+    desc: Bootstrap CRDs that need to be available onto the cluster beforehand
     cmds:
       - kubectl apply -k {{.KUBERNETES_DIR}}/bootstrap/
-
-  prerequisites:
-    desc: Install Cilium into your cluster
-    cmds:
-      #- NATIVE_CIDR="$(gcloud container clusters describe "${NAME}" --zone "${ZONE}" --format 'value(clusterIpv4Cidr)')"
-
+      - for:
+          [
+            'https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.66.0/example/prometheus-operator-crd/monitoring.coreos.com_podmonitors.yaml',
+            'https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.66.0/example/prometheus-operator-crd/monitoring.coreos.com_prometheusrules.yaml',
+            'https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.66.0/example/prometheus-operator-crd/monitoring.coreos.com_scrapeconfigs.yaml',
+            'https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.66.0/example/prometheus-operator-crd/monitoring.coreos.com_servicemonitors.yaml'
+          ]
+        cmd: curl -s {{ .ITEM }} -o "$(basename {{ .ITEM }} | sed 's/monitoring.coreos.com_/custom-/')" | kubectl apply -f -
 
   install:
     desc: Install Flux into your cluster

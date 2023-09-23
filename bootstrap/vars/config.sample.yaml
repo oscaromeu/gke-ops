@@ -85,3 +85,6 @@ bootstrap_flux_github_webhook_token:
 bootstrap_cloudflare_domain:
 # Cloudflare API Token (not API Key)
 bootstrap_cloudflare_token:
+
+# /60 IPv6 block is enough for 16 nodes
+bootstrap_cluster_cidr:

@@ -25,3 +25,4 @@
     - bootstrap_flux_github_webhook_token
     - bootstrap_cloudflare_domain
     - bootstrap_cloudflare_token
+    - bootstrap_cluster_cidr

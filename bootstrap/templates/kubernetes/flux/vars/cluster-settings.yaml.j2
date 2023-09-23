@@ -7,3 +7,4 @@ metadata:
   namespace: flux-system
 data:
   TIMEZONE: "{{ bootstrap_timezone }}"
+  CLUSTER_CIDR: "{{ bootstrap_cluster_cidr.split(',')[0] }}"
