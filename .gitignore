@@ -1,0 +1,18 @@
+# Trash
+.DS_Store
+Thumbs.db
+# k8s
+kubeconfig
+.decrypted~*.yaml
+.config.env
+*.agekey
+*.pub
+*.key
+# Ansible
+.venv*
+# Terraform
+*/.terraform
+# GKE
+gke_gcloud_auth_plugin_cache
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
